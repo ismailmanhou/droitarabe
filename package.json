@@ -1,0 +1,36 @@
+{
+  "name": "droitarabe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "watch": "nodemon app",
+    "lint" : "eslint .",
+    "lint:init" : "eslint . --init."
+  },
+  "engines": {
+    "node": "16.13.1"
+  },
+  "keywords": [],
+  "author": "ismail creative",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dompurify": "^2.3.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "jsdom": "^19.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.13.3",
+    "slugify": "^1.6.4",
+    "string-strip-html": "^8.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "nodemon": "^2.0.15"
+  }
+}

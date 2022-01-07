@@ -1,0 +1,18 @@
+<%- include ("partials/header") %> 
+
+<div class="addArticle">
+    <h2 class="main-title">اضف موضوع جديد</h2>
+    <div class="container">
+        <form  action="/all-articles" method="POST">
+            <input   class="input"type="text" name="title" id="title" placeholder="عنوان الموضوع">
+            <div class="title error"></div>
+            <input   class="input"type="text" name="urlImg" id="urlImg" placeholder="رابط الصورة الزامي ">
+            <div class="urlImg error"></div>
+            <textarea rows="20px" type="text" name="description" id="MyID" placeholder="محتوى الموضوع "></textarea>
+            <div class="description error"></div>
+            <input type="submit" value="أضف موضع" />
+        </form>
+    </div>
+</div>
+
+<%- include ("partials/footer") %> 

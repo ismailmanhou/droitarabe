@@ -1,0 +1,50 @@
+<%- include ("partials/header"); -%>
+
+    <div class="addArticle">
+        <h2 class="main-title">تسجيل </h2>
+        <div class="container">
+            <form>
+                <input class="input" type="text" name="username" id="username" placeholder="الاسم الشخصي ">
+                <div class="username error"></div>
+                <input class="input" type="text" name="password" id="password" placeholder="الرقم السري">
+                <div class="password error"></div>
+                <input type="submit" value="تسجيل" />
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const userError = document.querySelector('.username.error');
+        const passwordError = document.querySelector('.password.error');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            //rest errors
+            userError.textContent = '';
+            passwordError.textContent = '';
+            //get the values 
+            const username = form.username.value;
+            const password = form.password.value;
+
+            try {
+                const res = await fetch('/register', {
+                    method: 'POST',
+                    body: JSON.stringify({ username, password }),
+                    headers: { 'content-type': 'application/json' }
+                });
+                const data = await res.json();
+                console.log(data);
+                if (data.errors) {
+                    userError.textContent = data.errors.username;
+                    passwordError.textContent = data.errors.password;
+                }
+                if (data.user) {
+                   location.assign('/login') 
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        })
+    </script>
+<%- include ("partials/footer"); -%> 

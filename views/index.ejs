@@ -1,0 +1,42 @@
+<%- include ("partials/header") %>
+  <div class="articles" id="articles">
+    <h2 class="main-title">اخر المواضيع</h2>
+    <div class="container">
+      <% arrArticle.forEach(item=> { %>
+        <div class="box">
+          <img src="<%= item.urlImg  %> " alt="" />
+          <div class="content">
+            <h3>
+              <%= item.title %>
+            </h3>
+            <p>
+              <%= item.sanitizedHtml %>
+            </p>
+          </div>
+          <div class="info">
+            <a href="/all-articles/show/<%= item.slug %>">اقرأ المزيد</a>
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </div>
+        </div>
+        <% }) %>
+
+    </div>
+  </div>
+
+
+    <nav aria-label="pagination">
+      <ul class="pagination">
+          <li><a href=""><span aria-hidden="true">«</span><span class="visuallyhidden">previous</span></a></li>
+          <% for (let i=1; i <=Math.ceil(total/5);i++) { %>
+            <% if(pageNo==i) {%>
+          <li><a href="<%='/all-articles/' + i %>" aria-current="page"><span class="visuallyhidden"> </span><%= i%></a></li>
+          <% } else{ %>
+          <li><a href="<%='/all-articles/' + i %>" ><span class="visuallyhidden"> </span><%= i%></a></li>
+          <% } %>
+          <% } %>
+          <li><a href=""><span class="visuallyhidden">next</span><span aria-hidden="true">»</span></a></li>
+      </ul>
+  </nav>
+  
+   
+  <%- include ("partials/footer"); %>

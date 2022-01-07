@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/article.css">
+    <link rel="stylesheet" href="/css/all.min.css">
+     <!-- Google Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&#038;display=swap" rel="stylesheet" />
+     <!-- Editor  -->
+
+    <title><%= pageTitle  %> </title>
+</head>
+<body>
+ <!-- Start Header --> 
+ <div class="header" id="header">
+    <div class="container">
+      <a href="/" class="logo">القانون بالعربية</a>
+      <ul class="main-nav">
+      
+        <li><a href="/all-articles">المواضيع</a></li>       
+        <% if (user) { %>
+          <li><a href="/addNewArticle">اضف موضوع</a></li>
+          <li><a href="/logout">تسجيل الخروج</a></li>
+          <!-- <li><a href="/register">التسجيل</a></li> -->
+          <% } else{ %>
+        <li><a href="/login">تسجيل الدخول</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+  <!-- End Header -->
